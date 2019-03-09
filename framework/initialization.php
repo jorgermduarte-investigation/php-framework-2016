@@ -11,8 +11,6 @@ namespace Framework{
 
         protected static $middlewares = array(); //core middlewares
         protected static $libraries = array(); //core libraries
-        protected static $services = array(); //core services
-
         protected static $routes = array(); //core routes
         
         protected static $middlewaresCustom = array();
@@ -23,10 +21,9 @@ namespace Framework{
 
         public static $errors = array();
 
-        public function __construct($middlewares, $libraries,$services,$routes){
+        public function __construct($middlewares, $libraries,$routes){
             self::$middlewares = $middlewares;
             self::$libraries = $libraries;
-            self::$services = $services;
             self::$routes = $routes;
         }
 
