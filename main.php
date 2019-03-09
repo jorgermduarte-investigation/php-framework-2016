@@ -15,12 +15,12 @@ $routes = array(
 
 //Load the core libraries of the application/project
 $libraries = array(
-    "test"
+    "utils"
 );
 
 //Load the core middlewares of the application/project
 $middlewares = array(
-    "IsAuthenticated"
+    "isInMaintenance"
 );
 
 /**
@@ -44,6 +44,10 @@ $framework = new Framework(
 $framework_libraries = new Libraries();
 $framework_middlewares = new Middlewares();
 
+echo "<pre>";
+print("<b>Libraries/Middlewares Loaded</b></br>");
+print_r(Framework::$loaded);
+print("<b>Error List</b></br>");
 print_r(Framework::$errors);
-
+echo "</pre>";
 ?>

@@ -12,6 +12,7 @@ namespace Framework{
         }
 
         private function loadCoreMiddlewares(){
+            
             try{
                 for($i = 0 ; $i < count($this->core); $i++){
                     if(file_exists(parent::$routes["middlewares"].$this->core[$i]. ".php")){
@@ -25,10 +26,6 @@ namespace Framework{
             }
 
         }
-
-
-
-
 
     }
 
