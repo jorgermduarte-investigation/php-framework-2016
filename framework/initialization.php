@@ -11,7 +11,7 @@ namespace Framework{
          * */
         protected static $middlewares = array(); //core middlewares
         protected static $libraries = array(); //core libraries
-        protected static $routes = array(); //core routes
+        protected static $paths = array(); //core paths
         
         public static $loaded = array(); // provide all the libraries/middlewares loaded
         
@@ -24,10 +24,10 @@ namespace Framework{
 
         protected $session = null;
 
-        public function __construct($middlewares, $libraries,$routes){
+        public function __construct($middlewares, $libraries,$paths){
             self::$middlewares = $middlewares;
             self::$libraries = $libraries;
-            self::$routes = $routes;
+            self::$paths = $paths;
         }
 
     }

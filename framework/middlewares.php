@@ -15,8 +15,8 @@ namespace Framework{
             
             try{
                 for($i = 0 ; $i < count($this->core); $i++){
-                    if(file_exists(parent::$routes["middlewares"].$this->core[$i]. ".php")){
-                        require_once(parent::$routes["middlewares"] . $this->core[$i] . ".php");
+                    if(file_exists(parent::$paths["middlewares"].$this->core[$i]. ".php")){
+                        require_once(parent::$paths["middlewares"] . $this->core[$i] . ".php");
                     }else{
                         array_push(parent::$errors,"Failed to load the core middleware: ".$this->core[$i]);
                     }

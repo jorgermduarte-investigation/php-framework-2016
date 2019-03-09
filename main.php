@@ -6,11 +6,12 @@ $project_path = __DIR__;
  */
 
 //define the routes of the application
-$routes = array(
+$paths = array(
     "middlewares" => $project_path . "/middlewares/",
     "libraries" => $project_path . "/libraries/",
-    "services" => $project_path . "/services/",
     "framework" => $project_path . "/framework/",
+    "layouts" => $project_path . "/app/layouts/",
+    "fragments" => $project_path . "/app/fragments/"
 );
 
 //Load the core libraries of the application/project
@@ -27,27 +28,31 @@ $middlewares = array(
  * Framework Initialization
  */
 
-require($routes["framework"] . "initialization.php");
-require($routes["framework"] . "libraries.php");
-require($routes["framework"] . "middlewares.php");
+require($paths["framework"] . "initialization.php");
+require($paths["framework"] . "libraries.php");
+require($paths["framework"] . "middlewares.php");
+require($paths["framework"] . "pagebuilder.php");
 
 use \Framework\Initialization as Framework;
 use \Framework\Libraries as Libraries;
 use \Framework\Middlewares as Middlewares;
+use \Framework\PageBuilder as PageBuilder;
 
 $framework = new Framework(
     $middlewares, //Core middlewares
     $libraries, //Core Libraries
-    $routes, //Core Routes
+    $paths, //Core Paths
 );
 
 $framework_libraries = new Libraries();
 $framework_middlewares = new Middlewares();
+$PageBuilder = new PageBuilder();
 
-echo "<pre>";
-print("<b>Libraries/Middlewares Loaded</b></br>");
-print_r(Framework::$loaded);
-print("<b>Error List</b></br>");
-print_r(Framework::$errors);
-echo "</pre>";
+// echo "<pre>";
+// print("<b>Libraries/Middlewares Loaded</b></br>");
+// print_r(Framework::$loaded);
+// print("<b>Error List</b></br>");
+// print_r(Framework::$errors);
+// echo "</pre>";
+
 ?>

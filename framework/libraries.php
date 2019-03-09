@@ -14,8 +14,8 @@ namespace Framework{
         private function loadCoreLibraries(){
             try{
                 for($i = 0 ; $i < count($this->core); $i++){
-                    if(file_exists(parent::$routes["libraries"].$this->core[$i]. ".php")){
-                        require_once(parent::$routes["libraries"] . $this->core[$i] . ".php");
+                    if(file_exists(parent::$paths["libraries"].$this->core[$i]. ".php")){
+                        require_once(parent::$paths["libraries"] . $this->core[$i] . ".php");
                     }else{
                         array_push(parent::$errors,"Failed to load the core library: ".$this->core[$i]);
                     }
