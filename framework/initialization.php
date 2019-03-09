@@ -1,29 +1,33 @@
 <?php
+
 namespace Framework{
  
     class Initialization{
         
-        protected $middlewares = array();
-        protected $libraries = array();
-        protected $services = array();
+        /**
+         * Setting the property static in the variable, makes it to be part of the class and not to the object initializated.
+         * Same thing happens when we want to class a function static without the need of the class initialization(object)
+         * */
 
-        protected $routes = array();
-        private $configurations = array();
+        protected static $middlewares = array(); //core middlewares
+        protected static $libraries = array(); //core libraries
+        protected static $services = array(); //core services
 
+        protected static $routes = array(); //core routes
+        
         protected static $middlewaresCustom = array();
         protected static $librariesCustom = array();
         protected static $servicesCustom = array();
 
         protected $session = null;
 
-        protected $errorsList = array();
+        public static $errors = array();
 
-        public function __construct($middlewares,$libraries,$services,$routes,$configurations){
-            $middlewares = $middlewares;
-            $libraries = $libraries;
-            $services = $services;
-            $routes = $routes;
-            $configurations = $configurations;
+        public function __construct($middlewares, $libraries,$services,$routes){
+            self::$middlewares = $middlewares;
+            self::$libraries = $libraries;
+            self::$services = $services;
+            self::$routes = $routes;
         }
 
     }
