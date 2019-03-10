@@ -1,10 +1,8 @@
 Things that i remember:
 
-Add single middlewares for the respective page on the PageBuilder
-Add single libraries for the respective page on the PageBuilder
 Manage the permission setting for the respective page on the PageBuilder
 Create the session security class ( Created but not implemented)
-
+set routes redirect based on the configs
 Manage access to css  & javacript in the pages
 Translations component
 404 not found page + Unauthorizared etc ( this middleware is extremely important)
