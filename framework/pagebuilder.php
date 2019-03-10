@@ -29,8 +29,8 @@ namespace Framework{
 
             if(count(parent::$errors) == 0)
                 $this->generate();
-            else
-                print_r(parent::$errors);
+            // else
+            //     print_r(parent::$errors);
         }
 
         private function generate(){
@@ -45,10 +45,13 @@ namespace Framework{
                             $this->setPageLayout($value); 
                             break;
                         case "libraries":
+                            $this->executeLibraries($value);
                             break;
                         case "middlewares":
+                            $this->executeMiddlewares($value);
                             break;
                         case "permission":
+
                             break;
                         default:
                             $error = $this->handleError("[PageBuilder] Failed to execute the setting: " . $setting);
@@ -56,6 +59,24 @@ namespace Framework{
                     }
                 }
             }
+        }
+
+        public function executeMiddlewares($list){
+            if($list != "" && is_array($list)){
+                for($i = 0 ; $i < count($list); $i++){
+                    parent::setCustomMiddleware($list[$i]);
+                }
+            }else if($list != "")
+                parent::setCustomMiddleware($list[$i]);
+        }
+
+        public function executeLibraries($list){
+            if($list != "" && is_array($list)){
+                for($i = 0 ; $i < count($list); $i++){
+                    parent::setCustomLibrary($list[$i]);
+                }
+            }else if($list != "")
+                parent::setCustomLibrary($list[$i]);
         }
 
         private function setPageLayout($layout){

@@ -15,12 +15,12 @@ namespace Framework{
         
         public static $loaded = array(); // provide all the libraries/middlewares loaded
         
-        public static $midls = array(); // setted to provide the user to use middlewares in the page later on
-        public static $libs = array(); // setted to provide the user to use libraries in the page later on
+        public static $midls = []; // setted to provide the user to use middlewares in the page later on
+        public static $libs = []; // setted to provide the user to use libraries in the page later on
 
-        protected static $middlewaresCustom = array();
-        protected static $librariesCustom = array();
-        protected static $servicesCustom = array();
+        // protected static $middlewaresCustom = array();
+        // protected static $librariesCustom = array();
+        // protected static $servicesCustom = array();
 
         protected $session = null;
 
@@ -28,6 +28,59 @@ namespace Framework{
             self::$middlewares = $middlewares;
             self::$libraries = $libraries;
             self::$paths = $paths;
+        }
+
+        public function setCustomMiddleware($target){
+            try{
+                if(file_exists(self::$paths["middlewares"] .$target . ".php"))
+                    require_once(self::$paths["middlewares"] .$target . ".php");
+                else
+                    array_push(self::$errors,"Failed to load custom middleware: " .$target);
+            }catch(Exception $ex){
+                array_push(self::$errors,"Something went wrong: ".$ex);
+            }
+        }
+
+        public function setCustomLibrary($target){
+            try{
+                if(file_exists(self::$paths["libraries"] .$target . ".php"))
+                    require_once(self::$paths["libraries"] .$target . ".php");
+                else
+                    array_push(self::$errors,"Failed to load custom library: " .$target);
+            }catch(Exception $ex){
+                array_push(self::$errors,"Something went wrong: ".$ex);
+            }
+        }
+
+        public function loadLibrary($name){
+            $find = null;
+           
+            for($i=0; $i < count(self::$libs); $i++){
+                if(key(self::$libs[$i]) == $name){
+                    $find = self::$libs[$i][$name];
+                }
+            }
+            return $find;
+        }
+
+        public function loadMiddleware($name){
+            $find = null;
+
+            for($i=0; $i < count(self::$midls); $i++){
+                if(key(self::$midls[$i]) == $name){
+                    $find = self::$midls[$i][$name];
+                }
+            }
+            return $find;
+        }
+
+        public function info(){
+            echo "<pre>";
+            print("<b>Libraries/Middlewares Loaded</b></br>");
+            print_r(self::$loaded);
+            print("<b>Error List</b></br>");
+            print_r(self::$errors);
+            echo "</pre>";
         }
 
     }
