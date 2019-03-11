@@ -19,7 +19,7 @@
         )
     );
 
-    // $framework::info();
+    $framework::info();
     // $testmiddleware = $framework::loadMiddleware("test");
     // $testmiddleware->executionExample();
 ?>

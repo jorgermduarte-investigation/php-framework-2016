@@ -11,12 +11,14 @@ namespace Framework{
          * */
         protected static $middlewares = array(); //core middlewares
         protected static $libraries = array(); //core libraries
+        protected static $services = array(); //core libraries
         protected static $paths = array(); //core paths
         
         public static $loaded = array(); // provide all the libraries/middlewares loaded
         
         public static $midls = []; // setted to provide the user to use middlewares in the page later on
         public static $libs = []; // setted to provide the user to use libraries in the page later on
+        public static $servs = []; // setted to provide the user to use services in the page later on
 
         // protected static $middlewaresCustom = array();
         // protected static $librariesCustom = array();
@@ -24,9 +26,10 @@ namespace Framework{
 
         protected $session = null;
 
-        public function __construct($middlewares, $libraries,$paths){
+        public function __construct($middlewares, $libraries,$services,$paths){
             self::$middlewares = $middlewares;
             self::$libraries = $libraries;
+            self::$services = $services;
             self::$paths = $paths;
         }
 
@@ -71,6 +74,19 @@ namespace Framework{
                     $find = self::$midls[$i][$name];
                 }
             }
+            return $find;
+        }
+
+        
+        public function loadService($name){
+            $find = null;
+
+            for($i=0; $i < count(self::$servs); $i++){
+                if(key(self::$servs[$i]) == $name){
+                    $find = self::$servs[$i][$name];
+                }
+            }
+            
             return $find;
         }
 
