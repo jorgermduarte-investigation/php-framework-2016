@@ -4,12 +4,12 @@
 
     $PageBuilder->build(
         "Page Name", //page Name
-        array( //execute the respective components
-
+        array( //load components 
+            "test"
         ), 
         array( //settings for the page
             "libraries" => array(
-              "yo"
+                // "test"
             ), // load custom libraries
             "middlewares" => array(  //load custom middlewares for this page
                 "test"

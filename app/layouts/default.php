@@ -5,5 +5,7 @@
 </head>
 <body>
     <p>Default Layout</p>
+    <?php $this->setComponents(); ?>
+    <?php include(parent::$paths["fragments"] . "footer.php"); ?>
 </body>
 </html>

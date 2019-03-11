@@ -89,6 +89,17 @@ namespace Framework{
                 
         }
 
+        public function setComponents(){
+            if(count($this->components) > 0){
+                for($i =0 ;  $i < count($this->components) ; $i++){
+                    if(file_exists(self::$paths["components"] .$this->components[$i] . ".php"))
+                        include(self::$paths["components"] .$this->components[$i] . ".php");
+                    else
+                        array_push(parent::$errors,"Failed to execute the component: " . $this->components[$i] );
+                }
+            }
+        }
+
         //function created to allow us customize the errors later on
         private function handleError($error){
             return $error . "</br>";

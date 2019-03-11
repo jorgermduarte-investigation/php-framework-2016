@@ -11,7 +11,8 @@ $paths = array(
     "libraries" => $project_path . "/libraries/",
     "framework" => $project_path . "/framework/",
     "layouts" => $project_path . "/app/layouts/",
-    "fragments" => $project_path . "/app/fragments/"
+    "fragments" => $project_path . "/app/fragments/",
+    "components" => $project_path . "/app/components/"
 );
 
 //Load the core libraries of the application/project
@@ -41,7 +42,7 @@ use \Framework\PageBuilder as PageBuilder;
 $framework = new Framework(
     $middlewares, //Core middlewares
     $libraries, //Core Libraries
-    $paths, //Core Paths
+    $paths //Core Paths
 );
 
 $framework_libraries = new Libraries();
