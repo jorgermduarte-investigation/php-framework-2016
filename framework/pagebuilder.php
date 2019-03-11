@@ -100,6 +100,13 @@ namespace Framework{
             }
         }
 
+        public function setComponent($name){
+            if(file_exists(self::$paths["components"] . $name . ".php"))
+                include(parent::$paths["components"].  $name . ".php");
+            else
+                array_push(parent::$errors,"Failed to execute the component: " . $name );
+        }
+        
         //function created to allow us customize the errors later on
         private function handleError($error){
             return $error . "</br>";

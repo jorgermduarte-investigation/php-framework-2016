@@ -1,6 +1,6 @@
 <?php
-    require('../main.php');
-    require_once('../enumerators/permissions.php');
+    require('../../main.php');
+    require_once('../../enumerators/permissions.php');
 
     $PageBuilder->build(
         "Page Name", //page Name
@@ -12,7 +12,6 @@
                 // "test"
             ), // load custom libraries
             "middlewares" => array(  //load custom middlewares for this page
-                "test"
             ),
             "permission" => ENUM_PERMISSIONS::Member,
             "layout" => "default"

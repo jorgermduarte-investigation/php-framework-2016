@@ -15,6 +15,11 @@ $paths = array(
     "components" => $project_path . "/app/components/"
 );
 
+$GLOBALS["app_paths"] = array(
+    "css" => "/css/",
+    "js" => "/js/"
+);
+
 //Load the core libraries of the application/project
 $libraries = array(
     "utils"

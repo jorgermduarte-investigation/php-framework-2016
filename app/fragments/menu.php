@@ -1,0 +1,1 @@
+<a href="/subfolder/test.php">Redirect</a>
