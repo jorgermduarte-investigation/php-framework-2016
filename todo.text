@@ -2,7 +2,8 @@ Things that i remember:
 
 Manage the permission setting for the respective page on the PageBuilder
 Create the session security class ( Created but not implemented)
-set routes redirect based on the configs
-Translations component
-404 not found page + Unauthorizared etc ( this middleware is extremely important)
+
+------------------------------------------------------------------------
+
+Translations component (This is based for another framework)
 
