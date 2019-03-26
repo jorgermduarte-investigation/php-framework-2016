@@ -45,5 +45,5 @@ To show errors from the services,middlewares and libraries use the $framework::i
   - Call a service/lib/middleware :  $queryhelper = parent::loadService("queryhelper");
  
  
- 
+This framework has been based on Angular and Laravel.
 
