@@ -1,6 +1,8 @@
 # php-framework
 Simple framework for project/application creation.
 
+# Information
+I do not recommend the usage of this framework since it was made in 2016 by me. this is no longer maintained.
 
 # Configurations Required
 - Set the public folder as the Document Root.
